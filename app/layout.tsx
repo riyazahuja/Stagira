@@ -20,8 +20,8 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Stagira - Building Billions of Aligned ASI Systems",
-  description: "Commoditizing innovation through competitive AI research and scientific discovery.",
+  title: "Stagira",
+  description: "Commoditizing R&D",
     generator: 'v0.dev'
 }
 

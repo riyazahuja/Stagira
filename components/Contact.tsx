@@ -70,10 +70,10 @@ export default function Contact() {
         <p className="text-base mb-3 leading-relaxed">
           <strong>Email:</strong>{" "}
           <a
-            href="mailto:ahujariyaz05@gmail.com"
+            href="mailto:contact@stagiralabs.com"
             className="text-stagira-indigo hover:text-aureate-gold transition-colors cursor-hover"
           >
-            ahujariyaz05@gmail.com
+            contact@stagiralabs.com
           </a>
         </p>
         <p className="text-base leading-relaxed">
@@ -87,12 +87,12 @@ export default function Contact() {
         </p>
       </div>
 
-      {/* CTA Button */}
+      {/* CTA Button 
       <div className="flex justify-center mt-16 mb-40">
         <button className="bg-stagira-indigo text-papyrus-white px-12 py-4 rounded-full text-lg uppercase shadow-lg hover:bg-midnight-fade-end transition-colors duration-300 font-medium tracking-wide cursor-hover">
           <a href="mailto:contact@stagira.ai">Contact Us</a>
         </button>
-      </div>
+      </div>*/}
     </section>
   )
 }

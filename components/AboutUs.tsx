@@ -8,7 +8,7 @@ export default function AboutUs() {
     },
     {
       name: "Xander Heckett",
-      role: "Confounder",
+      role: "Cofounder",
       href: "https://www.linkedin.com/in/alexander-heckett-547a9b228/",
       initials: "XH",
     },
@@ -29,6 +29,18 @@ export default function AboutUs() {
       role: "Advisory",
       href: "https://www.cmu.edu/math/people/faculty/tetali.html",
       initials: "PT",
+    },
+    {
+      name: "Tate Rowney",
+      role: "Research",
+      href: "",
+      initials: "TR",
+    },
+    {
+      name: "Shivansh Gour",
+      role: "Research",
+      href: "",
+      initials: "SG",
     },
   ]
 

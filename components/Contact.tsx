@@ -70,10 +70,10 @@ export default function Contact() {
         <p className="text-base mb-3 leading-relaxed">
           <strong>Email:</strong>{" "}
           <a
-            href="mailto:contact@stagira.ai"
+            href="mailto:ahujariyaz05@gmail.com"
             className="text-stagira-indigo hover:text-aureate-gold transition-colors cursor-hover"
           >
-            contact@stagira.ai
+            ahujariyaz05@gmail.com
           </a>
         </p>
         <p className="text-base leading-relaxed">

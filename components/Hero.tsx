@@ -55,7 +55,7 @@ export default function Hero() {
         { id: "who-we-are", element: document.getElementById("who-we-are") },
         { id: "research", element: document.getElementById("research") },
         { id: "how-it-works", element: document.getElementById("how-it-works") },
-        { id: "about", element: document.getElementById("about") },
+        //{ id: "about", element: document.getElementById("about") },
         { id: "contact", element: document.getElementById("contact") },
       ]
 
@@ -102,7 +102,7 @@ export default function Hero() {
     { id: "who-we-are", label: "who we are" },
     { id: "research", label: "research" },
     { id: "how-it-works", label: "how it works" },
-    { id: "about", label: "about" },
+   // { id: "about", label: "about" },
     { id: "contact", label: "contact" },
   ]
 

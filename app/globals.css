@@ -1,0 +1,274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: "Inter", sans-serif;
+    --font-lora: "Lora", serif;
+    --font-jetbrains: "JetBrains Mono", monospace;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-inter);
+    color: #1a1b3e; /* stagira-indigo */
+    background-color: #faf7f2; /* papyrus-white */
+    font-weight: 300;
+  }
+
+  /* Custom cursor only on desktop devices */
+  @media (hover: hover) and (pointer: fine) and (min-width: 1024px) {
+    body {
+      cursor: none;
+    }
+
+    * {
+      cursor: none !important;
+    }
+  }
+
+  /* Custom text selection color */
+  ::selection {
+    background-color: #f3b23e; /* aureate-gold */
+    color: #1a1b3e; /* stagira-indigo */
+  }
+
+  ::-moz-selection {
+    background-color: #f3b23e; /* aureate-gold */
+    color: #1a1b3e; /* stagira-indigo */
+  }
+
+  /* Enhanced modern scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #faf7f2; /* papyrus-white */
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #646473; /* graphite-gray */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1a1b3e; /* stagira-indigo */
+  }
+
+  /* Firefox scrollbar styling */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #646473 #faf7f2;
+  }
+
+  .font-lora {
+    font-family: var(--font-lora);
+  }
+
+  .font-inter {
+    font-family: var(--font-inter);
+  }
+
+  .font-jetbrains {
+    font-family: var(--font-jetbrains);
+  }
+
+  /* Ensure all headings use Lora */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-lora);
+  }
+
+  /* Ensure all body text uses Inter */
+  p,
+  span,
+  div,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-inter);
+  }
+
+  /* Ensure code and captions use JetBrains Mono */
+  code,
+  pre,
+  .text-caption {
+    font-family: var(--font-jetbrains);
+  }
+
+  /* Leon Bubova inspired styles */
+  #hero {
+    width: 98vw;
+    height: 100vh;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+
+  #site-content {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0 8vw;
+  }
+
+  /* Navigation floating behavior */
+  #navigation {
+    position: fixed;
+    top: 5%;
+    right: 10%;
+    font-size: 22px;
+    text-align: right;
+    transition: top 1.2s ease;
+  }
+
+  .moved-navigation {
+    top: 35vh !important;
+  }
+
+  h3 {
+    font-size: 32px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+    min-height: 160px;
+    padding-top: 120px;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  blockquote {
+    border-left: 3px solid #666;
+    color: #666;
+    font-family: var(--font-inter);
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.8em;
+    padding: 1em 2em;
+    margin: 4rem 0;
+    position: relative;
+    transition: 0.2s border ease-in-out;
+    z-index: 0;
+  }
+
+  /* Remove default button styling */
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+  }
+
+  /* Custom button styles for specific buttons */
+  .cta-button {
+    font-family: inherit;
+    font-size: 18px;
+    color: white;
+    height: 43px;
+    padding: 10px 0;
+    background-color: rgb(25, 25, 25);
+    border-radius: 20px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-transform: uppercase;
+    width: 200px;
+  }
+
+  .project-button {
+    font-family: inherit;
+    font-size: 16px;
+    color: white;
+    height: 40px;
+    padding: 5px 15px;
+    background-color: rgb(25, 25, 25);
+    border-radius: 20px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  button a:hover {
+    text-decoration-color: white;
+  }
+
+  /* Navigation specific styles */
+  #navigation ul li {
+    margin-top: 20px;
+  }
+
+  #navigation button {
+    background: none;
+    border: none;
+    font-size: 22px;
+    font-weight: 300;
+    text-align: right;
+  }
+}
+
+@layer utilities {
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 26px !important;
+  }
+
+  #site-content {
+    padding: 0 5vw;
+  }
+}
+
+@media only screen and (max-width: 1160px) {
+  #navigation {
+    position: absolute !important;
+  }
+}
+
+@media only screen and (min-width: 1160px) {
+  #navigation {
+    position: fixed !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blink {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  #navigation {
+    transition: none;
+  }
+}

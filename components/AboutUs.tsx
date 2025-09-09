@@ -3,7 +3,7 @@ export default function AboutUs() {
     {
       name: "Riyaz Ahuja",
       role: "Cofounder",
-      href: "https://riyazahuja.com",
+      href: "https://www.linkedin.com/in/riyaz-ahuja/",
       initials: "RA",
     },
     {
@@ -12,23 +12,29 @@ export default function AboutUs() {
       href: "https://www.linkedin.com/in/alexander-heckett-547a9b228/",
       initials: "XH",
     },
+    // {
+    //   name: "Dr. Jeremy Avigad",
+    //   role: "Advisory",
+    //   href: "https://www.andrew.cmu.edu/user/avigad/",
+    //   initials: "JA",
+    // },
+    // {
+    //   name: "Dr. Sean Welleck",
+    //   role: "Advisory",
+    //   href: "https://wellecks.com/",
+    //   initials: "SW",
+    // },
+    // {
+    //   name: "Dr. Prasad Tetali",
+    //   role: "Advisory",
+    //   href: "https://www.cmu.edu/math/people/faculty/tetali.html",
+    //   initials: "PT",
+    // },
     {
-      name: "Dr. Jeremy Avigad",
-      role: "Advisory",
-      href: "https://www.andrew.cmu.edu/user/avigad/",
-      initials: "JA",
-    },
-    {
-      name: "Dr. Sean Welleck",
-      role: "Advisory",
-      href: "https://wellecks.com/",
-      initials: "SW",
-    },
-    {
-      name: "Dr. Prasad Tetali",
-      role: "Advisory",
-      href: "https://www.cmu.edu/math/people/faculty/tetali.html",
-      initials: "PT",
+      name: "Shivansh Gour",
+      role: "Research",
+      href: "",
+      initials: "SG",
     },
     {
       name: "Tate Rowney",
@@ -36,12 +42,7 @@ export default function AboutUs() {
       href: "",
       initials: "TR",
     },
-    {
-      name: "Shivansh Gour",
-      role: "Research",
-      href: "",
-      initials: "SG",
-    },
+    
   ]
 
   return (

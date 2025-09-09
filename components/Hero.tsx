@@ -52,24 +52,40 @@ export default function Hero() {
 
       // Determine active section based on scroll position
       const sections = [
-        { id: "who-we-are", element: document.getElementById("who-we-are") },
+        // { id: "who-we-are", element: document.getElementById("who-we-are") },
         { id: "research", element: document.getElementById("research") },
-        { id: "how-it-works", element: document.getElementById("how-it-works") },
-        //{ id: "about", element: document.getElementById("about") },
+        // { id: "how-it-works", element: document.getElementById("how-it-works") },
+        { id: "demo", element: document.getElementById("demo") },
+        { id: "about", element: document.getElementById("about") },
         { id: "contact", element: document.getElementById("contact") },
       ]
 
-      const scrollPosition = y + window.innerHeight / 3 // Trigger point at 1/3 of viewport
+      const anchor = y + window.innerHeight / 3 // sampling point in viewport
 
       let currentSection = ""
 
+      // Prefer the section whose bounds contain the anchor
       for (const section of sections) {
         if (section.element) {
           const rect = section.element.getBoundingClientRect()
-          const elementTop = rect.top + y
-
-          if (scrollPosition >= elementTop) {
+          const top = rect.top + y
+          const bottom = top + rect.height
+          if (anchor >= top && anchor < bottom) {
             currentSection = section.id
+            break
+          }
+        }
+      }
+
+      // Fallback: last section that started before the anchor
+      if (!currentSection) {
+        for (const section of sections) {
+          if (section.element) {
+            const rect = section.element.getBoundingClientRect()
+            const top = rect.top + y
+            if (anchor >= top) {
+              currentSection = section.id
+            }
           }
         }
       }
@@ -85,7 +101,7 @@ export default function Hero() {
   }, [])
 
   const handleScrollToContent = () => {
-    const element = document.getElementById("who-we-are")
+    const element = document.getElementById("research")
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
@@ -99,10 +115,11 @@ export default function Hero() {
   }
 
   const navItems = [
-    { id: "who-we-are", label: "who we are" },
+    // { id: "who-we-are", label: "who we are" },
     { id: "research", label: "research" },
-    { id: "how-it-works", label: "how it works" },
-   // { id: "about", label: "about" },
+    // { id: "how-it-works", label: "how it works" },
+    { id: "demo", label: "demo" },
+    { id: "about", label: "about" },
     { id: "contact", label: "contact" },
   ]
 
@@ -152,7 +169,7 @@ export default function Hero() {
             />
           </h1>
         </div>
-        <h2 className="text-xl text-graphite-gray mt-3 font-light">commoditizing innovation, one agent at a time.</h2>
+        <h2 className="text-xl text-graphite-gray mt-3 font-light">We're building automated mathematicians for collaborative discovery.</h2>
       </div>
 
       {/* Scroll indicator */}

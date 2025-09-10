@@ -37,67 +37,70 @@ export default function Hero() {
     return () => clearTimeout(initialTimer)
   }, [])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const y = window.scrollY
-      const navigation = document.getElementById("navigation")
+  // Named scroll handler for reuse
+  const handleScrollUpdate = () => {
+    const y = window.scrollY
+    const navigation = document.getElementById("navigation")
 
-      if (navigation) {
-        if (y > 1 && window.innerWidth >= 1160) {
-          navigation.classList.add("moved-navigation")
-        } else {
-          navigation.classList.remove("moved-navigation")
+    if (navigation) {
+      if (y > 1 && window.innerWidth >= 1160) {
+        navigation.classList.add("moved-navigation")
+      } else {
+        navigation.classList.remove("moved-navigation")
+      }
+    }
+
+    // Determine active section based on scroll position
+    const sections = [
+      { id: "research", element: document.getElementById("research") },
+      { id: "demo", element: document.getElementById("demo") },
+      { id: "about", element: document.getElementById("about") },
+      { id: "contact", element: document.getElementById("contact") },
+    ]
+
+    const anchor = y + window.innerHeight / 3 // sampling point in viewport
+
+    let currentSection = ""
+
+    // Prefer the section whose bounds contain the anchor
+    for (const section of sections) {
+      if (section.element) {
+        const rect = section.element.getBoundingClientRect()
+        const top = rect.top + y
+        const bottom = top + rect.height
+        if (anchor >= top && anchor < bottom) {
+          currentSection = section.id
+          break
         }
       }
+    }
 
-      // Determine active section based on scroll position
-      const sections = [
-        // { id: "who-we-are", element: document.getElementById("who-we-are") },
-        { id: "research", element: document.getElementById("research") },
-        // { id: "how-it-works", element: document.getElementById("how-it-works") },
-        { id: "demo", element: document.getElementById("demo") },
-        { id: "about", element: document.getElementById("about") },
-        { id: "contact", element: document.getElementById("contact") },
-      ]
+    // If at the very bottom of the page, force "contact" as active
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+      currentSection = "contact"
+    }
 
-      const anchor = y + window.innerHeight / 3 // sampling point in viewport
-
-      let currentSection = ""
-
-      // Prefer the section whose bounds contain the anchor
+    // Fallback: last section that started before the anchor
+    if (!currentSection) {
       for (const section of sections) {
         if (section.element) {
           const rect = section.element.getBoundingClientRect()
           const top = rect.top + y
-          const bottom = top + rect.height
-          if (anchor >= top && anchor < bottom) {
+          if (anchor >= top) {
             currentSection = section.id
-            break
           }
         }
       }
-
-      // Fallback: last section that started before the anchor
-      if (!currentSection) {
-        for (const section of sections) {
-          if (section.element) {
-            const rect = section.element.getBoundingClientRect()
-            const top = rect.top + y
-            if (anchor >= top) {
-              currentSection = section.id
-            }
-          }
-        }
-      }
-
-      setActiveSection(currentSection)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    // Call once to set initial state
-    handleScroll()
+    setActiveSection(currentSection)
+  }
 
-    return () => window.removeEventListener("scroll", handleScroll)
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollUpdate)
+    // Call once to set initial state
+    handleScrollUpdate()
+    return () => window.removeEventListener("scroll", handleScrollUpdate)
   }, [])
 
   const handleScrollToContent = () => {
@@ -111,6 +114,10 @@ export default function Hero() {
     const element = document.querySelector(href)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
+      // After smooth scroll, force scroll handler to update active section
+      setTimeout(() => {
+        handleScrollUpdate()
+      }, 400) // Wait for scroll animation
     }
   }
 

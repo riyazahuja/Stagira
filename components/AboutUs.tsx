@@ -32,14 +32,14 @@ export default function AboutUs() {
     // },
     {
       name: "Shivansh Gour",
-      role: "Research",
-      href: "",
+      role: "Cofounder",
+      href: "https://s-os.dev",
       initials: "SG",
     },
     {
       name: "Tate Rowney",
-      role: "Research",
-      href: "",
+      role: "Cofounder",
+      href: "https://taterowney.com/",
       initials: "TR",
     },
     

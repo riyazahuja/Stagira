@@ -2,13 +2,13 @@ export default function AboutUs() {
   const team = [
     {
       name: "Riyaz Ahuja",
-      role: "Cofounder",
+      // role: "Cofounder",
       href: "https://www.linkedin.com/in/riyaz-ahuja/",
       initials: "RA",
     },
     {
       name: "Xander Heckett",
-      role: "Cofounder",
+      // role: "Cofounder",
       href: "https://www.linkedin.com/in/alexander-heckett-547a9b228/",
       initials: "XH",
     },
@@ -32,13 +32,13 @@ export default function AboutUs() {
     // },
     {
       name: "Shivansh Gour",
-      role: "Cofounder",
+      // role: "Cofounder",
       href: "https://s-os.dev",
       initials: "SG",
     },
     {
       name: "Tate Rowney",
-      role: "Cofounder",
+      // role: "Cofounder",
       href: "https://taterowney.com/",
       initials: "TR",
     },
@@ -71,7 +71,7 @@ export default function AboutUs() {
             </div>
             <div>
               <h4 className="font-medium text-stagira-indigo group-hover:underline">{member.name}</h4>
-              <p className="text-graphite-gray text-sm">{member.role}</p>
+              {/* <p className="text-sm text-graphite-gray">{member.role}</p> */}
             </div>
           </a>
         ))}
